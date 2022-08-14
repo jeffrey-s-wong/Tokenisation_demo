@@ -134,9 +134,9 @@ if st.button('Tokenise Sentence'):
                 elif token_option == 'SentencePiece':
                     st.write("Tokeniser - Cantonese SentencePiece")
                     st.write("Segmentation result:")
-                    st.write(yuesp_tokeniser.encode_as_pieces(ninp))
+                    st.write(yuesp_tokeniser.encode_as_pieces(ninp)[1:])
                     st.write("Tokenization result:")
-                    st.write(yuesp_tokeniser.encode_as_ids(ninp))
+                    st.write(yuesp_tokeniser.encode_as_ids(ninp)[1:])
                 elif token_option == 'Character Piece':
                     st.write("Tokeniser - Cantonese Character Piece")
                     st.write("Segmentation result:")
