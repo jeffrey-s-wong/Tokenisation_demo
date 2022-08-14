@@ -111,7 +111,7 @@ if st.button('Tokenise Sentence'):
                     st.write(zhword_tokeniser.encode_as_pieces((' ').join(jieba.cut(ninp))))
                     st.write("Tokenization result:")
                     st.write(zhword_tokeniser.encode_as_ids((' ').join(jieba.cut(ninp))))
-                elif token_option == 'Sentence Piece':
+                elif token_option == 'SentencePiece':
                     st.write("Tokeniser - Mandarin SentencePiece")
                     st.write("Segmentation result:")
                     st.write(zhsp_tokeniser.encode_as_pieces(ninp)[1:])
@@ -120,9 +120,10 @@ if st.button('Tokenise Sentence'):
                 elif token_option == 'Character Piece':
                     st.write("Tokeniser - Mandarin Character Piece")
                     st.write("Segmentation result:")
-                    st.write(zhchar_tokeniser.tokenize(ninp))
+                    tokens = zhchar_tokeniser.tokenize(ninp)
+                    st.write(tokens)
                     st.write("Tokenization result:")
-                    st.write(zhchar_tokeniser.convert_tokens_to_ids(ninp))
+                    st.write(zhchar_tokeniser.convert_tokens_to_ids(tokens))
             elif lang_option == 'Cantonese':
                 if token_option == 'Word Piece':
                     st.write("Tokeniser - Cantonese Word Piece")
@@ -130,7 +131,7 @@ if st.button('Tokenise Sentence'):
                     st.write(yueword_tokeniser.encode_as_pieces((' ').join(pycantonese.segment(ninp))))
                     st.write("Tokenization result:")
                     st.write(yueword_tokeniser.encode_as_ids((' ').join(pycantonese.segment(ninp))))
-                elif token_option == 'Sentence Piece':
+                elif token_option == 'SentencePiece':
                     st.write("Tokeniser - Cantonese SentencePiece")
                     st.write("Segmentation result:")
                     st.write(yuesp_tokeniser.encode_as_pieces(ninp))
